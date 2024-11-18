@@ -1,0 +1,27 @@
+graph TB
+    subgraph "Token Program Flow"
+        Init["Initialize Mint"]
+        MintTo["Mint Tokens"]
+        Transfer["Transfer Tokens"]
+    end
+
+    subgraph "Account Types"
+        MA["Mint Account"]
+        TA["Token Account"]
+        ATA["Associated Token Account"]
+    end
+
+    subgraph "Authority"
+        MA_Auth["Mint Authority"]
+        Owner["Token Owner"]
+        Delegate["Delegate Authority"]
+    end
+
+    Init --> MA
+    MA --> MintTo
+    MintTo --> TA
+    TA --> Transfer
+    Transfer --> ATA
+    MA_Auth --> MA
+    Owner --> TA
+    Delegate --> Transfer

@@ -1,0 +1,29 @@
+graph TB
+    subgraph "Instructions"
+        Create["create_and_start_presale"]
+        Buy["buy_and_claim_token"]
+        Deposit["deposit_token"]
+        Withdraw["withdraw"]
+    end
+
+    subgraph "Programs"
+        System["System Program"]
+        Token["Token Program"]
+        Presale["Presale Program"]
+    end
+
+    subgraph "Accounts"
+        Mint["Token Mint"]
+        Vault["Presale Vault"]
+        User["User Token Account"]
+    end
+
+    Create --> Token
+    Create --> Mint
+    Buy --> System
+    Buy --> Token
+    Buy --> Vault
+    Deposit --> Token
+    Deposit --> Vault
+    Withdraw --> Token
+    Withdraw --> Vault

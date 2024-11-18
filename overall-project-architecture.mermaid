@@ -1,0 +1,20 @@
+graph TB
+    subgraph "Frontend"
+        UI["UI Components"]
+        Wallet["Wallet Integration"]
+        Auth["Authentication"]
+        API["API Layer"]
+    end
+
+    subgraph "Smart Contract"
+        Instructions["Presale Instructions"]
+        TokenLogic["Token Management"]
+        State["Program State"]
+    end
+
+    UI --> Wallet
+    Wallet --> API
+    Auth --> API
+    API --> Instructions
+    Instructions --> TokenLogic
+    Instructions --> State

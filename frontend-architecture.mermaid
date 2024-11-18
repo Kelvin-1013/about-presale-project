@@ -1,0 +1,28 @@
+graph TB
+    subgraph "Components"
+        Landing["Landing Page"]
+        Admin["Admin Panel"]
+        Presale["Presale Interface"]
+        Wallet["Wallet Connection"]
+    end
+
+    subgraph "Features"
+        Auth["Authentication"]
+        Notifications["Notifications"]
+        Animation["Animated UI"]
+    end
+
+    subgraph "Core"
+        Hooks["Custom Hooks"]
+        Constants["Constants"]
+        Utils["Utilities"]
+    end
+
+    Landing --> Auth
+    Admin --> Auth
+    Presale --> Wallet
+    Wallet --> Notifications
+    Landing --> Animation
+    Admin --> Animation
+    Hooks --> Auth
+    Constants --> Presale
